@@ -35,7 +35,7 @@
 
         #ball {
             position: absolute;
-            width: 4vmin;
+            width: 9vmin;
             height: 9vmin;
             background-color: red;
             border-radius: 50%;
@@ -44,7 +44,7 @@
 
         .wall {
             position: absolute;
-            width: 9vmin;
+            width: 4vmin;
             height: 9vmin;
             background-color: #000;
             box-sizing: border-box;
@@ -262,6 +262,9 @@
                     case 'ArrowRight':
                         velocity.x += sensitivity * 10; // Adjust sensitivity as needed
                         event.preventDefault();
+                        let newX = ballPosition.x + velocity.x;
+                        let newY = ballPosition.y + velocity.y;
+                        log(newY,newX);
                         break;
                     case 'ArrowUp':
                         velocity.y -= sensitivity * 10; // Adjust sensitivity as needed
@@ -270,6 +273,9 @@
                     case 'ArrowDown':
                         velocity.y += sensitivity * 10; // Adjust sensitivity as needed
                         event.preventDefault();
+                        let newX = ballPosition.x + velocity.x;
+                        let newY = ballPosition.y + velocity.y;
+                        log(newY,newX);
                         break;
                 }
             });
