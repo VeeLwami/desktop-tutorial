@@ -188,7 +188,7 @@
             velocity.y *= friction;
 
             // Check for collisions with walls and adjust position if necessary
-            if (!isWall(newX, ballPosition.y)) {
+            if (!isWall(newX, newY)) {
                 ballPosition.x = newX;
             } else {
                 velocity.x = 0;
@@ -264,7 +264,7 @@
                         event.preventDefault();
                         newX = ballPosition.x + velocity.x;
                         newY = ballPosition.y + velocity.y;
-                        console.log(newY,newX);
+                        console.log(newY+"***********"+newX);
                         break;
                     case 'ArrowUp':
                         velocity.y -= sensitivity * 10; // Adjust sensitivity as needed
@@ -275,7 +275,7 @@
                         event.preventDefault();
                         newX = ballPosition.x + velocity.x;
                         newY = ballPosition.y + velocity.y;
-                        console.log(newY,newX);
+                        console.log(newY+"***********"+newX);
                         break;
                 }
             });
