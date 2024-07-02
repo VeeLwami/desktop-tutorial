@@ -182,6 +182,8 @@
         }
 
         function moveBall() {
+            let prevX=ballPosition.x;
+            let prevY=ballPosition.y;
             let newX = ballPosition.x + velocity.x;
             let newY = ballPosition.y + velocity.y;
             // Apply friction
@@ -194,12 +196,14 @@
                 ballPosition.x = newX;
             } else {
                 velocity.x = 0;
+                ballPosition.x =prevX;
             }
 
             if (!isWall(Math.ceil(ballPosition.x)%10, Math.ceil(newY)%10)) {
                 ballPosition.y = newY;
             } else {
                 velocity.y = 0;
+                ballPosition.y =prevY;
             }
 
             // Boundary checks
