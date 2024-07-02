@@ -191,12 +191,12 @@
             velocity.y *= friction;
 
             // Check for collisions with walls and adjust position if necessary
-            console.log(Math.floor(ballPosition.y)+"*******"+Math.floor(newX));
             if (!isWall(Math.ceil(newX)%10, Math.ceil(ballPosition.y)%10)) {
                 ballPosition.x = newX;
             } else {
                 velocity.x = 0;
                 ballPosition.x =prevX;
+                console.log(prevX+"-------X");
             }
 
             if (!isWall(Math.ceil(ballPosition.x)%10, Math.ceil(newY)%10)) {
@@ -204,6 +204,7 @@
             } else {
                 velocity.y = 0;
                 ballPosition.y =prevY;
+                console.log(prevY+"-------Y");
             }
 
             // Boundary checks
