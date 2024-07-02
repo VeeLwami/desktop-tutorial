@@ -262,8 +262,8 @@
                     case 'ArrowRight':
                         velocity.x += sensitivity * 10; // Adjust sensitivity as needed
                         event.preventDefault();
-                        let newX = ballPosition.x + velocity.x;
-                        let newY = ballPosition.y + velocity.y;
+                        newX = ballPosition.x + velocity.x;
+                        newY = ballPosition.y + velocity.y;
                         console.log(newY,newX);
                         break;
                     case 'ArrowUp':
@@ -273,8 +273,8 @@
                     case 'ArrowDown':
                         velocity.y += sensitivity * 10; // Adjust sensitivity as needed
                         event.preventDefault();
-                        let newX = ballPosition.x + velocity.x;
-                        let newY = ballPosition.y + velocity.y;
+                        newX = ballPosition.x + velocity.x;
+                        newY = ballPosition.y + velocity.y;
                         console.log(newY,newX);
                         break;
                 }
