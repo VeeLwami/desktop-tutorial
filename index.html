@@ -122,7 +122,7 @@
         let friction = 0.98;
         let sensitivity = 0.009;
 
-        const maze = [
+        /*const maze = [
             [0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
             [0, 1, 0, 1, 1, 0, 1, 0, 1, 0],
             [0, 1, 0, 1, 0, 0, 1, 0, 1, 0],
@@ -133,6 +133,116 @@
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
             [1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ];*/
+        const maze = [
+            [
+                { top: true, right: true, bottom: false, left: true },
+                { top: true, right: false, bottom: true, left: false },
+                { top: true, right: false, bottom: false, left: true },
+                { top: true, right: true, bottom: false, left: true },
+                { top: true, right: true, bottom: false, left: true },
+                { top: true, right: true, bottom: false, left: true },
+                { top: true, right: true, bottom: true, left: false },
+                { top: true, right: true, bottom: false, left: true },
+                { top: true, right: true, bottom: false, left: true },
+                { top: true, right: true, bottom: false, left: true }
+            ],
+            [
+                { top: false, right: true, bottom: true, left: true },
+                { top: true, right: false, bottom: false, left: true },
+                { top: false, right: true, bottom: true, left: false },
+                { top: true, right: true, bottom: true, left: true },
+                { top: true, right: false, bottom: true, left: true },
+                { top: false, right: true, bottom: false, left: true },
+                { top: true, right: false, bottom: true, left: false },
+                { top: false, right: true, bottom: false, left: false },
+                { top: false, right: true, bottom: true, left: false },
+                { top: false, right: true, bottom: false, left: true }
+            ],
+            [
+                { top: true, right: true, bottom: false, left: true },
+                { top: false, right: true, bottom: false, left: true },
+                { top: true, right: true, bottom: false, left: true },
+                { top: true, right: false, bottom: false, left: true },
+                { top: false, right: true, bottom: false, left: false },
+                { top: false, right: true, bottom: false, left: false },
+                { top: true, right: false, bottom: false, left: true },
+                { top: false, right: true, bottom: false, left: false },
+                { top: true, right: true, bottom: false, left: false },
+                { top: false, right: true, bottom: true, left: true }
+            ],
+            [
+                { top: false, right: true, bottom: false, left: true },
+                { top: false, right: true, bottom: true, left: true },
+                { top: false, right: true, bottom: true, left: true },
+                { top: false, right: true, bottom: true, left: true },
+                { top: true, right: false, bottom: true, left: true },
+                { top: false, right: true, bottom: true, left: false },
+                { top: true, right: false, bottom: true, left: false },
+                { top: false, right: true, bottom: false, left: true },
+                { top: true, right: true, bottom: false, left: false },
+                { top: true, right: true, bottom: false, left: true }
+            ],
+            [
+                { top: false, right: true, bottom: false, left: true },
+                { top: true, right: true, bottom: true, left: true },
+                { top: true, right: true, bottom: true, left: true },
+                { top: true, right: true, bottom: true, left: true },
+                { top: true, right: true, bottom: false, left: true },
+                { top: true, right: true, bottom: false, left: true },
+                { top: true, right: false, bottom: true, left: true },
+                { top: true, right: true, bottom: false, left: false },
+                { top: true, right: true, bottom: true, left: true },
+                { top: true, right: true, bottom: false, left: true }
+            ],
+            [
+                { top: false, right: true, bottom: false, left: true },
+                { top: true, right: false, bottom: false, left: true },
+                { top: true, right: false, bottom: false, left: false },
+                { top: true, right: true, bottom: false, left: false },
+                { top: false, right: true, bottom: false, left: true },
+                { top: false, right: true, bottom: false, left: true },
+                { top: false, right: true, bottom: false, left: true },
+                { top: false, right: true, bottom: true, left: true },
+                { top: false, right: true, bottom: false, left: false },
+                { top: false, right: true, bottom: false, left: true }
+            ],
+            [
+                { top: false, right: true, bottom: false, left: true },
+                { top: true, right: false, bottom: false, left: true },
+                { top: true, right: false, bottom: false, left: false },
+                { top: true, right: true, bottom: false, left: false },
+                { top: false, right: true, bottom: false, left: true },
+                { top: false, right: true, bottom: false, left: true },
+                { top: false, right: true, bottom: false, left: true },
+                { top: false, right: true, bottom: true, left: true },
+                { top: false, right: true, bottom: false, left: false },
+                { top: false, right: true, bottom: false, left: true }
+            ],
+            [
+                { top: false, right: true, bottom: false, left: true },
+                { top: true, right: false, bottom: false, left: true },
+                { top: true, right: false, bottom: false, left: false },
+                { top: true, right: true, bottom: false, left: false },
+                { top: false, right: true, bottom: false, left: true },
+                { top: false, right: true, bottom: false, left: true },
+                { top: false, right: true, bottom: false, left: true },
+                { top: false, right: true, bottom: true, left: true },
+                { top: false, right: true, bottom: false, left: false },
+                { top: false, right: true, bottom: false, left: true }
+            ],
+            [
+                { top: false, right: true, bottom: false, left: true },
+                { top: true, right: false, bottom: false, left: true },
+                { top: true, right: false, bottom: false, left: false },
+                { top: true, right: true, bottom: false, left: false },
+                { top: false, right: true, bottom: false, left: true },
+                { top: false, right: true, bottom: false, left: true },
+                { top: false, right: true, bottom: false, left: true },
+                { top: false, right: true, bottom: true, left: true },
+                { top: false, right: true, bottom: false, left: false },
+                { top: false, right: true, bottom: false, left: true }
+            ]
         ];
 
         let goalPosition = setNewGoal();
@@ -160,19 +270,18 @@
         function renderWalls() {
             for (let x = 0; x < mazeSize; x++) {
                 for (let y = 0; y < mazeSize; y++) {
-                    if (maze[x][y] === 1) {
-                        const wall = document.createElement('div');
-                        wall.className = 'wall';
-                        wall.style.left = `${y * cellSize}vmin`;
-                        wall.style.top = `${x * cellSize}vmin`;
-                        mazeContainer.appendChild(wall);
-                    }else{
-                        const space = document.createElement('div');
-                        space.className = 'space';
-                        space.style.left = `${y * cellSize}vmin`;
-                        space.style.top = `${x * cellSize}vmin`;
-                        mazeContainer.appendChild(space);
-                    }
+                    const cell = maze[x][y];
+                    const cellDiv = document.createElement('div');
+                    cellDiv.className = 'cell';
+                    cellDiv.style.left = `${y * cellSize}vmin`;
+                    cellDiv.style.top = `${x * cellSize}vmin`;
+
+                    if (cell.top) cellDiv.style.borderTop = '2px solid black';
+                    if (cell.right) cellDiv.style.borderRight = '2px solid black';
+                    if (cell.bottom) cellDiv.style.borderBottom = '2px solid black';
+                    if (cell.left) cellDiv.style.borderLeft = '2px solid black';
+
+                    mazeContainer.appendChild(cellDiv);
                 }
             }
         }
@@ -223,7 +332,16 @@
 
         function isWall(x, y) {
             if (x < 0 || x >= mazeSize || y < 0 || y >= mazeSize) return true;
-            return  maze[Math.ceil(y)][Math.ceil(x)] === 1;//maze[Math.floor(y)][Math.floor(x)] === 1 ||
+            const cell = maze[Math.floor(y)][Math.floor(x)];
+            if (x !== Math.floor(ballPosition.x)) {
+                if (x > ballPosition.x && cell.left) return true;
+                if (x < ballPosition.x && cell.right) return true;
+            }
+            if (y !== Math.floor(ballPosition.y)) {
+                if (y > ballPosition.y && cell.top) return true;
+                if (y < ballPosition.y && cell.bottom) return true;
+            }
+            return false;
         }
 
         async function initGyroscope() {
