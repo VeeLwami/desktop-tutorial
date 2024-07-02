@@ -264,7 +264,7 @@
                         event.preventDefault();
                         let newX = ballPosition.x + velocity.x;
                         let newY = ballPosition.y + velocity.y;
-                        log(newY,newX);
+                        console.log(newY,newX);
                         break;
                     case 'ArrowUp':
                         velocity.y -= sensitivity * 10; // Adjust sensitivity as needed
@@ -275,7 +275,7 @@
                         event.preventDefault();
                         let newX = ballPosition.x + velocity.x;
                         let newY = ballPosition.y + velocity.y;
-                        log(newY,newX);
+                        console.log(newY,newX);
                         break;
                 }
             });
