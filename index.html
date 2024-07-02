@@ -101,8 +101,6 @@
         const mazeSize = 10;
         const cellSize = 9;
 
-
-
         function onClick() {
             if (typeof DeviceMotionEvent.requestPermission === 'function') {
                 DeviceMotionEvent.requestPermission()
@@ -118,8 +116,6 @@
                 window.addEventListener('devicemotion', handleOrientation);
             }
         }
-
-       
 
         let ballPosition = { x: 0, y: 0 };
         let velocity = { x: 0, y: 0 };
@@ -182,29 +178,28 @@
         }
 
         function moveBall() {
-            let prevX=ballPosition.x;
-            let prevY=ballPosition.y;
+            let prevX = ballPosition.x;
+            let prevY = ballPosition.y;
             let newX = ballPosition.x + velocity.x;
             let newY = ballPosition.y + velocity.y;
+
             // Apply friction
             velocity.x *= friction;
             velocity.y *= friction;
 
             // Check for collisions with walls and adjust position if necessary
-            if (!isWall(Math.ceil(newX)%10, Math.ceil(ballPosition.y)%10)) {
+            if (!isWall(newX, ballPosition.y)) {
                 ballPosition.x = newX;
             } else {
                 velocity.x = 0;
-                ballPosition.x =prevX;
-                console.log(prevX+"-------X");
+                ballPosition.x = prevX;
             }
 
-            if (!isWall(Math.ceil(ballPosition.x)%10, Math.ceil(newY)%10)) {
+            if (!isWall(ballPosition.x, newY)) {
                 ballPosition.y = newY;
             } else {
                 velocity.y = 0;
-                ballPosition.y =prevY;
-                console.log(prevY+"-------Y");
+                ballPosition.y = prevY;
             }
 
             // Boundary checks
@@ -229,9 +224,8 @@
         }
 
         function isWall(x, y) {
-            console.log(y, x);
             if (x < 0 || x >= mazeSize || y < 0 || y >= mazeSize) return true;
-            return maze[y][x] === 1;
+            return maze[Math.floor(y)][Math.floor(x)] === 1;
         }
 
         async function initGyroscope() {
@@ -277,9 +271,9 @@
                         velocity.y += sensitivity * 10; // Adjust sensitivity as needed
                         event.preventDefault();
                         break;
-            }
-        });
-    }
+                }
+            });
+        }
 
         function startGyroscope() {
             let gyro = new Gyroscope({ frequency: 60 });
@@ -317,6 +311,7 @@
                 velocity.y += accY * dynamicSensitivity;
             }
         }
+
         function updateUIForNoGyroscope() {
             noGyroMessage.style.display = 'block';
             handleArrowKeys();
