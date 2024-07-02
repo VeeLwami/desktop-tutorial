@@ -188,18 +188,16 @@
             velocity.y *= friction;
 
             // Check for collisions with walls and adjust position if necessary
-            if (!isWall(newX, newY)) {
+            if (!isWall(newX, ballPosition.y)) {
                 ballPosition.x = newX;
             } else {
                 velocity.x = 0;
-                ballPosition.x = prevX;
             }
 
             if (!isWall(ballPosition.x, newY)) {
                 ballPosition.y = newY;
             } else {
                 velocity.y = 0;
-                ballPosition.y = prevY;
             }
 
             // Boundary checks
