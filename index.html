@@ -348,10 +348,10 @@
         function isWall(x, y) {
             if (x < 0 || x >= mazeSize || y < 0 || y >= mazeSize) return true;
             const cell = maze[Math.floor(y)][Math.floor(x)];
-            if (Math.floor(velocity.x) > 0 && cell.right) return true;
-            if (Math.floor(velocity.x) < 0 && cell.left) return true;
-            if (Math.floor(velocity.y) > 0 && cell.bottom) return true;
-            if (Math.floor(velocity.y) < 0 && cell.top) return true;
+            if (velocity.x > 0 && cell.right) return true;
+            if (velocity.x < 0 && cell.left) return true;
+            if (velocity.y > 0 && cell.bottom) return true;
+            if (velocity.y < 0 && cell.top) return true;
             return false;
         }
 
