@@ -190,13 +190,13 @@
             velocity.y *= friction;
 
             // Check for collisions with walls and adjust position if necessary
-            if (!isWall(newX, ballPosition.y)) {
+            if (!isWall(true)) {
                 ballPosition.x = newX;
             } else {
                 velocity.x = 0;
             }
 
-            if (!isWall(ballPosition.x, newY)) {
+            if (!isWall(false)) {
                 ballPosition.y = newY;
             } else {
                 velocity.y = 0;
@@ -223,13 +223,13 @@
             requestAnimationFrame(moveBall);
         }
 
-        function isWall(x, y) {
+        function isWall(isHorizonal) {
             if (x < 0 || x >= mazeSize || y < 0 || y >= mazeSize) return true;
             //return  maze[Math.ceil(y)][Math.ceil(x)] === 1;//maze[Math.floor(y)][Math.floor(x)] === 1 ||
-            if(velocity.x>0){console.log(Math.floor(ballPosition.y),Math.floor(ballPosition.x)+1); return maze[Math.floor(ballPosition.y)][(Math.floor(ballPosition.x)+1)%10] === 1};//going right
-            if(velocity.x<0){console.log(Math.floor(ballPosition.y),Math.floor(ballPosition.x)-1);return maze[Math.floor(ballPosition.y)][Math.floor(ballPosition.x)-1 < 0 ? 0 : Math.floor(ballPosition.x)-1 ] === 1};
-            if(velocity.y>0){console.log(Math.floor(ballPosition.y)+1,Math.floor(ballPosition.x));return maze[(Math.floor(ballPosition.y)+1)%10][Math.floor(ballPosition.x)] === 1};//going down
-            if(velocity.y<0){console.log(Math.floor(ballPosition.y)-1,Math.floor(ballPosition.x));return maze[Math.floor(ballPosition.y)-1<0 ? 0 : Math.floor(ballPosition.y)-1][Math.floor(ballPosition.x)] === 1};
+            if(velocity.x>0 && isHorizonal){console.log(Math.floor(ballPosition.y),Math.floor(ballPosition.x)+1); return maze[Math.floor(ballPosition.y)][(Math.floor(ballPosition.x)+1)%10] === 1};//going right
+            if(velocity.x<0 && isHorizonal){console.log(Math.floor(ballPosition.y),Math.floor(ballPosition.x)-1);return maze[Math.floor(ballPosition.y)][Math.floor(ballPosition.x)-1 < 0 ? 0 : Math.floor(ballPosition.x)-1 ] === 1};
+            if(velocity.y>0 && isHorizonal){console.log(Math.floor(ballPosition.y)+1,Math.floor(ballPosition.x));return maze[(Math.floor(ballPosition.y)+1)%10][Math.floor(ballPosition.x)] === 1};//going down
+            if(velocity.y<0 && isHorizonal){console.log(Math.floor(ballPosition.y)-1,Math.floor(ballPosition.x));return maze[Math.floor(ballPosition.y)-1<0 ? 0 : Math.floor(ballPosition.y)-1][Math.floor(ballPosition.x)] === 1};
         }
 
         async function initGyroscope() {
