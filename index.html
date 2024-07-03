@@ -194,6 +194,7 @@
                 ballPosition.x = newX;
             } else {
                 velocity.x = 0;
+                ballPosition.x =Math.floor(ballPosition.x)
             }
 
             if (!isWall(false)) {
