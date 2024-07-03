@@ -194,14 +194,14 @@
                 ballPosition.x = newX;
             } else {
                 velocity.x = 0;
-                ballPosition.x =Math.floor(ballPosition.x)
+                ballPosition.x =ballPosition.x;
             }
 
             if (!isWall(false)) {
                 ballPosition.y = newY;
             } else {
                 velocity.y = 0;
-                ballPosition.y =Math.floor(ballPosition.y)
+                ballPosition.y =ballPosition.y;
             }
 
             // Boundary checks
