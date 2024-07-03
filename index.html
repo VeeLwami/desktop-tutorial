@@ -193,15 +193,15 @@
             if (!isWall(true)) {
                 ballPosition.x = newX;
             } else {
-                //velocity.x = 0;
-                ballPosition.x =ballPosition.x;
+                velocity.x = 0;
+                ballPosition.x =Math.floor(ballPosition.x);
             }
 
             if (!isWall(false)) {
                 ballPosition.y = newY;
             } else {
-                //velocity.y = 0;
-                ballPosition.y =ballPosition.y;
+                velocity.y = 0;
+                ballPosition.y =Math.floor(ballPosition.y);
             }
 
             // Boundary checks
